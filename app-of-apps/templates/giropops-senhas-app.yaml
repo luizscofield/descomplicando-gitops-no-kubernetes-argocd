@@ -13,7 +13,7 @@ spec:
     helm:
       parameters:
       - name: "giropopsSenhas.replicas"
-        value: {{ .Values.argocd.giropopsSenhas.replicas }}
+        value: "{{ .Values.argocd.giropopsSenhas.replicas }}"
   destination:
     namespace: giropops-senhas
     server: 'https://kubernetes.default.svc'
