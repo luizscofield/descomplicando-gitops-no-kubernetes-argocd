@@ -6,7 +6,6 @@ metadata:
 spec:
   project: default
   source:
-    helm: {}
     repoURL: 'https://github.com/luizscofield/descomplicando-gitops-no-kubernetes-argocd'
     targetRevision: day-2
     path: random-logger/helm
