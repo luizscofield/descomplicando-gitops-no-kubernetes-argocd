@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: 'https://kubernetes.default.svc'
+  source:
+    helm:
+      parameters:
+        - name: "argocd.giropopsSenhas.enabled"
+          value: "false"
+        - name: "argocd.randomLogger.enabled"
+          value: "true"
+    path: app-of-apps
+    repoURL: 'https://github.com/luizscofield/descomplicando-gitops-no-kubernetes-argocd'
+    targetRevision: day-2
+  project: default
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
+    - PruneLast=true
+    
