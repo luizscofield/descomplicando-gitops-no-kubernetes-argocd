@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: giropops-senhas
+  name: random-logger
   namespace: argocd
 spec:
   project: default
@@ -9,9 +9,9 @@ spec:
     helm: {}
     repoURL: 'https://github.com/luizscofield/descomplicando-gitops-no-kubernetes-argocd'
     targetRevision: day-2
-    path: giropops-senhas/helm
+    path: random-logger/helm
   destination:
-    namespace: giropops-senhas
+    namespace: random-logger
     server: 'https://kubernetes.default.svc'
   syncPolicy:
     automated:
