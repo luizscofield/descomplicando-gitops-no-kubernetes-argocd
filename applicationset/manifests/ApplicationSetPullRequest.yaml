@@ -3,9 +3,6 @@ kind: ApplicationSet
 metadata:
   name: cluster-addons
 spec:
-  goTemplate: true
-  goTemplateOptions:
-  - "missingkey=error"
   generators:
   - pullRequest:
       github:
@@ -22,7 +19,7 @@ spec:
       project: default
       source:
         repoURL: https://github.com/luizscofield/descomplicando-gitops-no-kubernetes-argocd
-        targetRevision: '{{head_sha}}'
+        targetRevision: '{{target_branch}}'
         path: app-of-apps/
       destination:
         server: 'https://kubernetes.default.svc'
